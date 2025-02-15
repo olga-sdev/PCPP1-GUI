@@ -18,5 +18,29 @@ Key aspects of visual programming include:
 
 Widgets -> small, interactive applications or tools that provide specific functionality or information.
 
+Components of Widgets"
+* Title bar with Title and Closing Button;
+* non-clickable icon – a small picture to identify that it's issue;
+* label – text inside a window with explaination of issue or other purpose of widget;
+* Yes | No clickable buttons.
 
+Event-driven paradigm
+event handler -> functions or methods in programming that are triggered in response to specific events or actions.
+event controller -> responsible for managing and directing events between different parts of a system.
+
+Common events:
+pressing the mouse button;
+releasing the mouse button (an ordinary mouse click consists of these two subsequent events)
+moving the mouse cursor;
+dragging something under the mouse cursor;
+pressing and releasing a key;
+tapping a screen;
+tracking the passage of time;
+monitoring a widget’s state change etc.
+
+EVENT -> TRIGGER -> EVENT HANDLER -> EVENT LOOP
+
+TkInter -> toolkit | adapter -> set of uniform facilities enables to write one code and not worry about portability for different OS.
+
+adapter -> widget toolkit, a GUI toolkit, or a UX library.
 """
