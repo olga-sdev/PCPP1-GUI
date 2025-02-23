@@ -1,10 +1,12 @@
 """
-Event handling -> mechanisms that allow a program to respond to events such as user actions or system-generated events.
+Event handling -> mechanisms that allow a program to respond to events.md such as user actions or system-generated events.md.
 
 Event Source: Object where event initially occurred.
 Event Object: Information about the event that occurred.
 Event Listener: Interface that defines the method to handle the event.
 Event Handler: Method that gets called in response to an event.
+
+Example of events -> Tkinter/events.md
 """
 
 import tkinter as tk
@@ -32,5 +34,21 @@ button_close = tk.Button(widget, text='Close', command=widget.destroy,
                          activeforeground="#0000FF",
                          activebackground="#00FFFF")
 button_close.pack(fill=tk.BOTH)
+
+widget.mainloop()
+
+
+# Example with bind -> connect a widget with an event
+
+def enter(event):
+    messagebox.showinfo("Great", "Great")
+
+
+widget = tk.Tk()
+widget.title('Events')
+
+message = tk.Message(widget, text="How is it going?")
+message.bind("<Enter>", enter)
+message.pack()
 
 widget.mainloop()
