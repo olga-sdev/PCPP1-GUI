@@ -3,6 +3,9 @@ unbind a callback from an event -> the widget stops reacting to the event.
 bind   a callback from an event -> the widget reacts to the event.
 
 bind and unbind -> with config()
+
+unbind_all() -> unbind the same callback to all existed widgets
+bind_all()   -> bind the same callback to all existed widgets
 """
 
 # Example with config function
@@ -62,5 +65,23 @@ node.pack()
 text = tk.Message(widget, text='Click here')
 text.bind("<Button-1>", info_on)
 text.pack()
+
+widget.mainloop()
+
+
+# Example with bindall() and unbindall()
+def greet(dummy):
+    messagebox.showinfo("", "greeting!")
+
+
+widget = tk.Tk()
+
+click = tk.Button(widget, text="Greeting")
+click.pack()
+
+frame = tk.Frame(widget)
+frame.pack()
+
+widget.bind_all("<Button-1>", greet)
 
 widget.mainloop()
