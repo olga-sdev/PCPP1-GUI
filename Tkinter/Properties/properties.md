@@ -24,3 +24,12 @@
 | height                     | The height of the widget                                                                                             | 
 | underline                  | The index of the character inside the widget’s text, which should be presented as underlined or -1 otherwise         |
 | width                      | The width of the widget                                                                                              |
+
+
+| Widget color property name | Property role                                                                                                                               | 
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| background (bg)            | The color of the widget’s background (you can freely use either of these two forms)                                                         | 
+| foreground (fg)            | The color of the widget’s foreground (note: it can mean different things in different widgets; in general, it’s used to specify text color) | 
+| activeforeground           | Like bg but used when the widget becomes active                                                                                             | 
+| activebackground           | Like fg but used when the widget becomes active                                                                                             | 
+| disabledforeground         | The width of the widget                                                                                                                     | 
