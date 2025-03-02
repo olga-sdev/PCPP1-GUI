@@ -20,6 +20,9 @@ all the components are set to 255 -> white as a result
 #0000FF is blue
 #00FFFF is turquoise
 #FF00FF is violet
+
+Color can be changed with config()
+Widget color properties -> Tkinter/Properties/widget_properties.py
 """
 
 import tkinter as tk
@@ -38,6 +41,9 @@ node_hex = tk.Button(widget_color,
                      fg="#FFFFFF",
                      activeforeground="#0000FF",
                      activebackground="#00FFFF")
+
+node_color.config(bg ="#000000")
+node_color.config(activebackground ="green")
 
 node_color.pack()
 node_hex.pack()
