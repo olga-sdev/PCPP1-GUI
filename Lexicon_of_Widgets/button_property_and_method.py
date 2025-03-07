@@ -1,0 +1,13 @@
+
+| Button property    | Property meaning                                                                                                                                                                                                                                                           | 
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| command            | the callback being invoked when the button is clicked                                                                                                                                                                                                                      | 
+| justify            | the way in which the inner text is justified: possible (self-describing) values are: LEFT, CENTER, and RIGHT                                                                                                                                                               | 
+| state              | if you set the property to DISABLED, the button becomes deaf and doesn’t react to clicks, while its title is shown in gray; setting it to NORMAL restores normal button functioning; when the mouse is located above the button, the property changes its value to ACTIVE  | 
+
+                                                                                                                                                                                                                                              | 
+
+| Button method | Method role                                                                                                                                                                                                         | 
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| flash()       | the button flashes a few times but doesn’t change its state                                                                                                                                                         | 
+| invoke()      | 	activates the callback assigned to the widget and returns the same value the callback returned; note: this is the only way to invoke your own callback explicitly, as the event manager must be aware of the fact  | 
