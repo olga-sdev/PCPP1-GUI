@@ -8,7 +8,7 @@
 | variable             | an observable IntVar variable reflecting the widget’s state; defaultly it’s set to 1 when the checkbutton is checked, and to 0 otherwise | 
 | offvalue             | the non-default value being assigned to a variable when the checkbutton is not checked                                                   |
 | onvalue              | the non-default value being assigned to a variable when the checkbutton is checked                                                       |
- 	 | 
+ 	 
 
 | Checkbutton method | Method role                                                | 
 |--------------------|------------------------------------------------------------|
