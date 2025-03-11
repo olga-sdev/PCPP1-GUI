@@ -5,7 +5,7 @@
 | justify            | the way in which the inner text is justified: possible (self-describing) values are: LEFT, CENTER, and RIGHT                                                                                                                                                               | 
 | state              | if you set the property to DISABLED, the button becomes deaf and doesn’t react to clicks, while its title is shown in gray; setting it to NORMAL restores normal button functioning; when the mouse is located above the button, the property changes its value to ACTIVE  | 
 
-                                                                                                                                                                                                                                              | 
+                                                                                                                                                                                                                                              
 
 | Button method | Method role                                                                                                                                                                                                         | 
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
