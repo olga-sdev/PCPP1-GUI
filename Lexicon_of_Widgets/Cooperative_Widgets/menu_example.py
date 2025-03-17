@@ -17,6 +17,7 @@ Key Points
 """
 
 import tkinter as tk
+from tkinter import messagebox
 
 
 widget = tk.Tk()
@@ -24,8 +25,8 @@ widget.title('Code Editor')
 widget.geometry('250x170')
 
 
-def exit_widget():
-    widget.destroy()
+def about():
+    messagebox.showinfo('Code Editor Menu')
 
 
 menu_bar = tk.Menu(widget)
@@ -38,9 +39,11 @@ list_menu.add_command(label='Code')
 list_menu.add_command(label='Refactor')
 list_menu.add_command(label='Settings')
 list_menu.add_separator()
-list_menu.add_command(label='Exit', command=exit_widget)
+list_menu.add_command(label='About', command=about)
+list_menu.add_command(label='Exit', command=widget.quit)
 
-menu_bar.add_cascade(label='App menu', menu=list_menu)
+# Set key Alt+A with underline=0
+menu_bar.add_cascade(label='App menu', menu=list_menu, underline=0)
 
 widget.config(menu=menu_bar)
 
