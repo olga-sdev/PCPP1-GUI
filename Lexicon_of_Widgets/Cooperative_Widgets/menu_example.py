@@ -26,7 +26,7 @@ widget.geometry('250x170')
 
 
 def about():
-    messagebox.showinfo('Code Editor Menu')
+    messagebox.showinfo('App','Code Editor Menu')
 
 
 menu_bar = tk.Menu(widget)
