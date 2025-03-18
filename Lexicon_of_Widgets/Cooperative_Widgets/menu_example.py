@@ -14,6 +14,8 @@ Key Points
 * add_cascade: Creates a submenu.
 * add_separator: Adds a horizontal line to separate items.
 * tearoff: Affects whether a menu can be "torn off" into its own window (set to 0 to disable this feature).
+
+accelerator -> string naming the key
 """
 
 import tkinter as tk
@@ -25,7 +27,7 @@ widget.title('Code Editor')
 widget.geometry('250x170')
 
 
-def about():
+def about(event=None):
     messagebox.showinfo('App','Code Editor Menu')
 
 
@@ -37,14 +39,20 @@ list_menu.add_command(label='Edit')
 list_menu.add_command(label='View')
 list_menu.add_command(label='Code')
 list_menu.add_command(label='Refactor')
-list_menu.add_command(label='Settings')
+
+sub_settings = tk.Menu(list_menu, tearoff=0)
+sub_settings.add_command(label='Plugins')
+list_menu.add_cascade(label='Settings', menu=sub_settings)
+
 list_menu.add_separator()
-list_menu.add_command(label='About', command=about)
+list_menu.add_command(label='About', command=about, accelerator='Ctrl+A')
 list_menu.add_command(label='Exit', command=widget.quit)
 
 # Set key Alt+A with underline=0
 menu_bar.add_cascade(label='App menu', menu=list_menu, underline=0)
 
 widget.config(menu=menu_bar)
+
+widget.bind_all("<Control-a>", about)
 
 widget.mainloop()
