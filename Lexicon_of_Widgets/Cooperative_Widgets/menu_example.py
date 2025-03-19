@@ -16,6 +16,7 @@ Key Points
 * tearoff: Affects whether a menu can be "torn off" into its own window (set to 0 to disable this feature).
 
 accelerator -> string naming the key
+entryconfigure -> sub-menu item's configurator method with 2 parameters 'index' and 'property'
 """
 
 import tkinter as tk
@@ -42,6 +43,9 @@ list_menu.add_command(label='Refactor')
 
 sub_settings = tk.Menu(list_menu, tearoff=0)
 sub_settings.add_command(label='Plugins')
+sub_settings.add_command(label='Frameworks')
+sub_settings.entryconfig(0, state=tk.DISABLED)
+
 list_menu.add_cascade(label='Settings', menu=sub_settings)
 
 list_menu.add_separator()
