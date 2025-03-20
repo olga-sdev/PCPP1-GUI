@@ -3,6 +3,7 @@ In Tkinter, protocols are used to handle special events or interactions between 
 
 "WM_DELETE_WINDOW" -> triggered when user attempts to close the application window (e.g., by clicking the "X" button).
 
+"WM_DELETE_WINDOW" the only one actual protokol.
 """
 
 import tkinter as tk
