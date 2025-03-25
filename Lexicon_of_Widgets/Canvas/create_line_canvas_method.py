@@ -23,3 +23,16 @@ canvas.create_line(200, 200, 400, 0, fill="green", width=2, dash=(1, 1))  # Dash
 
 # Run the Tkinter event loop
 widget.mainloop()
+
+
+
+# Example with options for crreate_line
+
+widget = tk.Tk()
+
+canvas = tk.Canvas(widget, width=200, height=200, bg='aquamarine')
+canvas.create_line(10, 10, 20, 110, 150, 20, 180, 180,
+                   arrow=tk.LAST, fill='green', smooth=True, width=3)
+
+canvas.grid()
+widget.mainloop()
