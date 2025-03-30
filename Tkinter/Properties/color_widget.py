@@ -23,6 +23,7 @@ all the components are set to 255 -> white as a result
 
 Color can be changed with config()
 Widget color properties -> Tkinter/Properties/widget_properties.py
+Another list of colors for widget -> https://www.plus2net.com/python/tkinter-colors.php
 """
 
 import tkinter as tk
