@@ -25,11 +25,17 @@ from tkinter import messagebox
 widget = tk.Tk()
 widget.title('Calculator')
 widget.config(bg='darkseagreen1')
+widget.geometry('240x200')
+
+canvas = tk.Canvas(widget, height=140, width=140, bg='darkseagreen1')
+canvas.place(x=40, y=40)
 
 
 def evaluation():
     if resolve() is None:
-        messagebox.showerror(message='The field contains invalid data')
+        messagebox.showerror(message=f'The field contains invalid data.'
+                                     f'\nFirst entry: {first_entry.get()}'
+                                     f'\nSecond entry: {second_entry.get()}')
     else:
         messagebox.showinfo(title='Result', message=f'The result is: {resolve()}')
 
@@ -48,26 +54,41 @@ def resolve():
         return result
     except ValueError as err:
         print(f'Enter int or float values: {err}')
-    except ZeroDivisionError as e:
-        raise ValueError("Invalid operation: Cannot divide by zero.") from e
+    except ZeroDivisionError as err:
+        print(f"Invalid operation: Cannot divide by zero: {err}")
 
 
 first_value = tk.IntVar()
-first_entry = tk.Entry(widget, width=20, textvariable=first_value)
-first_entry.grid(column=0, row=0)
+first_entry = tk.Entry(canvas, width=7, textvariable=first_value)
+first_entry.delete(0, tk.END)
+first_entry.grid(column=0, row=2)
 
 second_value = tk.IntVar()
-second_entry = tk.Entry(widget, width=20, textvariable=second_value)
-second_entry.grid(column=2, row=0)
+second_entry = tk.Entry(canvas, width=7, textvariable=second_value)
+second_entry.delete(0, tk.END)
+second_entry.grid(column=2, row=2)
 
 selected_option = tk.StringVar()
 selected_option.set("+")
-options = ["+", "-", "/", "*"]
-for option in options:
-    tk.Radiobutton(widget, text=option, variable=selected_option, value=option,
-                   bg='darkseagreen1', command=resolve).grid(column=1)
 
-button_evaluate = tk.Button(widget, text='Evaluate', command=evaluation)
+radio_plus = tk.Radiobutton(canvas, text='+', variable=selected_option, value='+',
+                            bg='darkseagreen1', command=resolve)
+radio_plus.grid(column=1, row=0)
+
+radio_minus = tk.Radiobutton(canvas, text='-', variable=selected_option, value='-',
+                             bg='darkseagreen1', command=resolve)
+radio_minus.grid(column=1, row=1)
+
+radio_divis = tk.Radiobutton(canvas, text='/', variable=selected_option, value='/',
+                             bg='darkseagreen1', command=resolve)
+radio_divis.grid(column=1, row=2)
+
+radio_mult = tk.Radiobutton(canvas, text='*', variable=selected_option, value='*',
+                            bg='darkseagreen1', command=resolve)
+radio_mult.grid(column=1, row=3)
+
+button_evaluate = tk.Button(canvas, text='Evaluate', fg='darkslategray', bg='darkseagreen3',
+                            font=('Arial', '9', 'bold'), command=evaluation)
 button_evaluate.grid(column=1, row=5)
 
 widget.mainloop()
