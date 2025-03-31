@@ -38,9 +38,17 @@ def change_status(node):
     global counter
     node['state'] = tk.DISABLED
     counter += 1
-    text_label.set(counter)
+    if counter == 1:
+        update_timer()
+
+
+def update_timer():
+    global s
+    lid = label.after(1000, update_timer)
+    s += 1
+    label['text'] = s
     if counter == 25:
-        text_label.set(0)
+        label.after_cancel(lid)
 
 
 buttons = []
@@ -53,10 +61,8 @@ for i, name in enumerate(button_names):
     buttons.append(button)
 
 
-text_label = tk.IntVar()
 s = 0
-text_label.set(s)
-label = tk.Label(widget, textvariable=text_label)
+label = tk.Label(widget, text=s)
 label.grid(row=5, column=2)
 
 
