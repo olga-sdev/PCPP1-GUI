@@ -31,9 +31,16 @@ import tkinter as tk
 widget = tk.Tk()
 widget.title('Clicker')
 
+counter = 0
+
 
 def change_status(node):
+    global counter
     node['state'] = tk.DISABLED
+    counter += 1
+    text_label.set(counter)
+    if counter == 25:
+        text_label.set(0)
 
 
 buttons = []
@@ -41,14 +48,16 @@ button_names = random.sample(range(1, 999), 25)
 
 for i, name in enumerate(button_names):
     button = tk.Button(widget, text=name, width=7, state=tk.NORMAL,
-                       command=lambda node=i: change_status(buttons[node]))
+                       command=lambda index=i: change_status(buttons[index]))
     button.grid(row=i // 5, column=i % 5)
     buttons.append(button)
 
 
 text_label = tk.IntVar()
-text_label.set(0)
+s = 0
+text_label.set(s)
 label = tk.Label(widget, textvariable=text_label)
 label.grid(row=5, column=2)
+
 
 widget.mainloop()
