@@ -43,4 +43,24 @@ phases = ((True,  False, False),
           (False, True,  False))
 
 
-# Write your code here.
+widget = Tk()
+widget.title('Traffic Lights')
+widget.geometry('600x260')
+
+canvas = Canvas(widget, width=600, height=200, bg='darkslategray')
+
+red_circle = canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='red')
+
+yellow_circle = canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='yellow')
+
+green_circle = canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='green')
+
+canvas.grid(row=0)
+
+button_next = Button(widget, text='Next', width=7)
+button_next.grid(row=1)
+
+button_quit = Button(widget, text='Quit', width=7, command=lambda: widget.quit())
+button_quit.grid(row=2)
+
+widget.mainloop()
