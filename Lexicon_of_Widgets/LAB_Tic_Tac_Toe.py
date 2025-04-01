@@ -31,4 +31,28 @@ wnd = tk.Tk()
 wnd.title("TicTacToe")
 
 
-# Write your code here.
+buttons = []
+
+button_names = []
+
+for i in range(9):
+    names = ['O', 'X']
+    index_name = randrange(len(names))
+    name = names[index_name]
+    button_names.append(name)
+
+print(button_names)
+
+
+for i, name in enumerate(button_names):
+    button = tk.Button(wnd, text=name, width=10, height=5, font=('Arial', '20', 'bold'), state=tk.NORMAL)
+    button.grid(row=i // 3, column=i % 3)
+    buttons.append(button)
+
+for button in buttons:
+    if button['text'] == 'O':
+        button.config(fg='green')
+    elif button['text'] == 'X':
+        button.config(fg='red')
+
+wnd.mainloop()
