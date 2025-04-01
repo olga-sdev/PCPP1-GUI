@@ -42,6 +42,33 @@ phases = ((True,  False, False),
           (False, False, True),
           (False, True,  False))
 
+phase = 0
+
+
+def change_phase(event):
+    global phase
+    print(phase)
+    if phase == 3:
+        canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='lavenderblush4')
+        canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='yellow')
+        canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='lavenderblush4')
+        phase = 0
+    elif phase == 2:
+        canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='lavenderblush4')
+        canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='lavenderblush4')
+        canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='green')
+        phase = 3
+    elif phase == 1:
+        canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='red')
+        canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='yellow')
+        canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='lavenderblush4')
+        phase = 2
+    elif phase == 0:
+        canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='red')
+        canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='lavenderblush4')
+        canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='lavenderblush4')
+        phase = 1
+
 
 widget = Tk()
 widget.title('Traffic Lights')
@@ -49,16 +76,16 @@ widget.geometry('600x260')
 
 canvas = Canvas(widget, width=600, height=200, bg='darkslategray')
 
-red_circle = canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='red')
-
-yellow_circle = canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='yellow')
-
-green_circle = canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='green')
+canvas.create_oval(4, 4, 200, 200, outline='black', width=4, fill='red')
+canvas.create_oval(204, 4, 400, 200, outline='black', width=4, fill='lavenderblush4')
+canvas.create_oval(404, 4, 596, 200, outline='black', width=4, fill='lavenderblush4')
 
 canvas.grid(row=0)
 
 button_next = Button(widget, text='Next', width=7)
 button_next.grid(row=1)
+
+button_next.bind('<Button-1>', change_phase)
 
 button_quit = Button(widget, text='Quit', width=7, command=lambda: widget.quit())
 button_quit.grid(row=2)
