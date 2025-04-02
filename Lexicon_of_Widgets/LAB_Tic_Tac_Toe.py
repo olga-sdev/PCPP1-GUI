@@ -21,8 +21,6 @@ the program checks if the game over conditions are met, and if the game is over,
 otherwise the computer responds with its move and the check is repeated,
 use random to generate the computer's moves.
 """
-
-
 import tkinter as tk
 from tkinter import messagebox
 from random import randrange
