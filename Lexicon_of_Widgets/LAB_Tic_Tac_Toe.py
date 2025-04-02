@@ -88,7 +88,7 @@ def winner():
 
 
 for i in range(9):
-    button = tk.Button(wnd, text='', width=10, height=5, state=tk.NORMAL, font=('Arial', '20', 'bold'),
+    button = tk.Button(wnd, text='', width=5, height=2, state=tk.NORMAL, font=('Arial', '20', 'bold'),
                        command=lambda index=i: change_name(index))
     button.grid(row=i // 3, column=i % 3)
     buttons.append(button)
