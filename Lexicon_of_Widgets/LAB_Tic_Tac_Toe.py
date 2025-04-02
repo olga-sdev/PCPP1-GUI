@@ -21,18 +21,17 @@ the program checks if the game over conditions are met, and if the game is over,
 otherwise the computer responds with its move and the check is repeated,
 use random to generate the computer's moves.
 """
+
 import tkinter as tk
 from tkinter import messagebox
 from random import randrange
-
+import random
 
 wnd = tk.Tk()
 wnd.title("TicTacToe")
 
-
 buttons = []
 button_names = []
-
 
 for i in range(9):
     names = ['O', 'X']
@@ -42,20 +41,68 @@ for i in range(9):
 
 
 def change_name(node):
-    for name, button in zip(button_names, buttons):
-        print(name)
-        button['text'] = name
-        if button['text'] == 'O':
-            button.config(fg='green')
-        elif button['text'] == 'X':
-            button.config(fg='red')
+    global indexes
+    if node not in indexes:
+        buttons[node].config(text='O', fg='green', font=('Arial', '20', 'bold'))
+        indexes.append(node)
+        x_step()
+        winner()
+
+
+def x_step():
+    global indexes
+    random_index = random.randint(0, 8)
+    print(f'random: {random_index}')
+    if random_index not in indexes:
+        buttons[random_index].config(text='X', fg='red', font=('Arial', '20', 'bold'))
+        indexes.append(random_index)
+    else:
+        x_step()
+
+
+def winner():
+    if buttons[0]['text'] == 'O' and buttons[1]['text'] == 'O' and buttons[2]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[3]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[5]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[6]['text'] == 'O' and buttons[7]['text'] == 'O' and buttons[8]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[0]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[8]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[2]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[6]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[0]['text'] == 'O' and buttons[3]['text'] == 'O' and buttons[6]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[1]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[7]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[2]['text'] == 'O' and buttons[5]['text'] == 'O' and buttons[8]['text'] == 'O':
+        messagebox.showinfo('Game over', 'You won!')
+    elif buttons[0]['text'] == 'X' and buttons[1]['text'] == 'X' and buttons[2]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[3]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[5]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[6]['text'] == 'X' and buttons[7]['text'] == 'X' and buttons[8]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[0]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[8]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[2]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[6]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[0]['text'] == 'X' and buttons[3]['text'] == 'X' and buttons[6]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[1]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[7]['text'] == 'X':
+        messagebox.showinfo('Game over', 'I won!')
+    elif buttons[2]['text'] == 'X' and buttons[5]['text'] == 'X' and buttons[8]['text'] == 'X':
+        messagebox.showinfo('Game over','I won!')
 
 
 for i, name in enumerate(button_names):
-    button = tk.Button(wnd, text='', width=10, height=5, font=('Arial', '20', 'bold'), state=tk.NORMAL,
+    button = tk.Button(wnd, text='', width=10, height=5, state=tk.NORMAL, font=('Arial', '20', 'bold'),
                        command=lambda index=i: change_name(index))
     button.grid(row=i // 3, column=i % 3)
     buttons.append(button)
+
+buttons[4].config(text='X', fg='red', font=('Arial', '20', 'bold'))
+indexes = [4]
 
 print(button_names)
 print(buttons)
