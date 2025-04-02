@@ -53,38 +53,24 @@ def x_step():
 
 
 def winner():
-    if buttons[0]['text'] == 'O' and buttons[1]['text'] == 'O' and buttons[2]['text'] == 'O':
+    if (buttons[0]['text'] == 'O' and buttons[1]['text'] == 'O' and buttons[2]['text'] == 'O') or \
+            (buttons[3]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[5]['text'] == 'O') or \
+            (buttons[6]['text'] == 'O' and buttons[7]['text'] == 'O' and buttons[8]['text'] == 'O') or \
+            (buttons[0]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[8]['text'] == 'O') or \
+            (buttons[2]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[6]['text'] == 'O') or \
+            (buttons[0]['text'] == 'O' and buttons[3]['text'] == 'O' and buttons[6]['text'] == 'O') or \
+            (buttons[1]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[7]['text'] == 'O') or \
+            (buttons[2]['text'] == 'O' and buttons[5]['text'] == 'O' and buttons[8]['text'] == 'O'):
         messagebox.showinfo('Game over', 'You won!')
-    elif buttons[3]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[5]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[6]['text'] == 'O' and buttons[7]['text'] == 'O' and buttons[8]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[0]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[8]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[2]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[6]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[0]['text'] == 'O' and buttons[3]['text'] == 'O' and buttons[6]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[1]['text'] == 'O' and buttons[4]['text'] == 'O' and buttons[7]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[2]['text'] == 'O' and buttons[5]['text'] == 'O' and buttons[8]['text'] == 'O':
-        messagebox.showinfo('Game over', 'You won!')
-    elif buttons[0]['text'] == 'X' and buttons[1]['text'] == 'X' and buttons[2]['text'] == 'X':
+    elif (buttons[0]['text'] == 'X' and buttons[1]['text'] == 'X' and buttons[2]['text'] == 'X') or \
+            (buttons[3]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[5]['text'] == 'X') or \
+            (buttons[6]['text'] == 'X' and buttons[7]['text'] == 'X' and buttons[8]['text'] == 'X') or \
+            (buttons[0]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[8]['text'] == 'X') or \
+            (buttons[2]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[6]['text'] == 'X') or \
+            (buttons[0]['text'] == 'X' and buttons[3]['text'] == 'X' and buttons[6]['text'] == 'X') or \
+            (buttons[1]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[7]['text'] == 'X') or \
+            (buttons[2]['text'] == 'X' and buttons[5]['text'] == 'X' and buttons[8]['text'] == 'X'):
         messagebox.showinfo('Game over', 'I won!')
-    elif buttons[3]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[5]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[6]['text'] == 'X' and buttons[7]['text'] == 'X' and buttons[8]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[0]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[8]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[2]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[6]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[0]['text'] == 'X' and buttons[3]['text'] == 'X' and buttons[6]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[1]['text'] == 'X' and buttons[4]['text'] == 'X' and buttons[7]['text'] == 'X':
-        messagebox.showinfo('Game over', 'I won!')
-    elif buttons[2]['text'] == 'X' and buttons[5]['text'] == 'X' and buttons[8]['text'] == 'X':
-        messagebox.showinfo('Game over','I won!')
 
 
 for i in range(9):
