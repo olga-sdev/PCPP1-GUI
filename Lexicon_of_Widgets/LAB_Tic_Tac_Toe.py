@@ -22,6 +22,7 @@ otherwise the computer responds with its move and the check is repeated,
 use random to generate the computer's moves.
 """
 
+
 import tkinter as tk
 from tkinter import messagebox
 from random import randrange
@@ -32,8 +33,8 @@ wnd.title("TicTacToe")
 
 
 buttons = []
-
 button_names = []
+
 
 for i in range(9):
     names = ['O', 'X']
@@ -41,18 +42,24 @@ for i in range(9):
     name = names[index_name]
     button_names.append(name)
 
-print(button_names)
+
+def change_name(node):
+    for name, button in zip(button_names, buttons):
+        print(name)
+        button['text'] = name
+        if button['text'] == 'O':
+            button.config(fg='green')
+        elif button['text'] == 'X':
+            button.config(fg='red')
 
 
 for i, name in enumerate(button_names):
-    button = tk.Button(wnd, text=name, width=10, height=5, font=('Arial', '20', 'bold'), state=tk.NORMAL)
+    button = tk.Button(wnd, text='', width=10, height=5, font=('Arial', '20', 'bold'), state=tk.NORMAL,
+                       command=lambda index=i: change_name(index))
     button.grid(row=i // 3, column=i % 3)
     buttons.append(button)
 
-for button in buttons:
-    if button['text'] == 'O':
-        button.config(fg='green')
-    elif button['text'] == 'X':
-        button.config(fg='red')
+print(button_names)
+print(buttons)
 
 wnd.mainloop()
