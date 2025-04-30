@@ -1,6 +1,6 @@
 # PCPP1-GUI
 
-Scope of the edube project Tkinter Essentials and Lexicon of Widgets:
+Content of project:
 
 GUI basic blocks and conventions;
 
